@@ -1,0 +1,54 @@
+h1 {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 12pt;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+}
+
+td {
+    min-width: 30px;
+}
+
+table.standings {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+table.standings td, th {
+    white-space: nowrap;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.local_place, .place, .group, .grade, .taskresults, .solved, .submits, .points {
+    text-align: center;
+}
+
+td.full {
+    background-color: #99ff99;
+}
+
+td.partial {
+    background-color: #ffffaa;
+}
+
+td.taskresults {
+    font-size: 11pt;
+}
+
+span.tasksubmits {
+    font-size: 8pt;
+}
+
+td.full span.taskpoints {
+    font-weight: bold
+}

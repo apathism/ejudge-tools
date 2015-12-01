@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="stand.css"/>
+<title>Результаты МШП на заочном туре Открытой олимпиады</title>
+</head>
+
+<body>
+<h1>Результаты МШП на заочном туре Открытой олимпиады</h1>
+<p><b>Последнее обновление</b>: {{update_time}}</p>
+<table class="standings">
+<tr>
+  <th rowspan="2">Место</th>
+  <th rowspan="2">Абс.место</th>
+  <th rowspan="2">Фамилия/Имя</th>
+  <th rowspan="2">Группа</th>
+  <th rowspan="2">Класс</th>
+  <th colspan="9">Задачи</th>
+  <th rowspan="2">Решено</th>
+  <th rowspan="2">Балл</th>
+  <th rowspan="2">Посылок</th></tr>
+<tr><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th><!---<th>J</th><th>K</th>--></tr>
+{{#persons}}
+<tr>
+  <td class="local_place">{{local_place}}</td>
+  <td class="place">{{place}}</td>
+  <td class="name">{{name}}</td>
+  <td class="group">{{group}}</td>
+  <td class="grade">{{grade}}</td>
+{{#tasks}}
+  {{^not_submitted}}
+  <td class="taskresults{{#full}} full{{/full}}{{#partial}} partial{{/partial}}">
+    <span class="taskpoints">{{points}}</span><br/>
+    <span class="tasksubmits">({{submits}})</span>
+  </td>
+  {{/not_submitted}}
+  {{#not_submitted}}
+  <td class="taskresults notsubmitted">&nbsp;</td>
+  {{/not_submitted}}
+{{/tasks}}
+  <td class="solved">{{solved}}</td>
+  <td class="points">{{points}}</td>
+  <td class="submits">{{submits}}</td></tr>
+{{/persons}}
+</table>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://apathism.net/analytics/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "1"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
+<!-- Piwik Image Tracker -->
+<noscript>
+<img src="https://apathism.net/analytics/piwik.php?idsite=1&amp;rec=1" style="border:0" alt="" />
+</noscript>
+<!-- End Piwik -->
+</body>
+</html>
