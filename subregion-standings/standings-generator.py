@@ -60,6 +60,8 @@ class Result:
         self.scores = self.parse_scores([(int(x) if self.is_number(x) else None) for x in columns[3: -1]])
         if (sum([score.sum for score in self.scores if score.was]) != self.total_score):
             print('ACHTUNG: {}'.format(self))
+        if (len(list(self.login.split('-'))) != 3):
+            print('ACHTUNG: {}'.format(self))
 
     def get_region(self):
         return int(self.login.split('-')[1])
@@ -88,6 +90,6 @@ for region in regions:
     region_name = local_results[0].region.replace('м. р.', 'муниципальный район').replace('г. о.', 'Городской округ')
     code78 = "".join([str(result) for result in local_results if result.login.startswith('olymp08')])
     code911 = "".join([str(result) for result in local_results if result.login.startswith('olymp11')])
-    outfile = open("{:02}.html".format(region), "w")
+    outfile = open("results/{:02}.html".format(region), "w")
     print(template.replace('##1##', region_name).replace('##2##', code78).replace('##3##', code911), file=outfile)
     outfile.close()
